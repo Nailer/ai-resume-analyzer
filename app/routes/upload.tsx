@@ -53,10 +53,13 @@ const Upload = () => {
 
     const feedback = await ai.feedback(
       uploadedFile.path,
-      prepareInstructions({ jobTitle, jobDescription })
-    )
+      prepareInstructions({ jobTitle, jobDescription, AIResponseFormat: "json" })
+    );
 
-    if (!feedback) return setStatusText("Error: Failed to analyse resume");
+    if (!feedback) {
+      setStatusText("Error: Failed to analyse resume");
+      return;
+    }
 
     const feedbackText = typeof feedback.message.content === 'string' ? feedback.message.content : feedback.message.content[0].text;
 
@@ -64,7 +67,7 @@ const Upload = () => {
     await kv.set(`resume:${uuid}`, JSON.stringify(data));
     setStatusText("Analysis complete, redirecting....");
 
-    console.log(data);
+    console.log("after analysis log", data);
     
 
   }
