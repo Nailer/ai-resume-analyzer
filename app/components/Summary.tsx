@@ -27,7 +27,7 @@ const Summary = ({ feedback }: any) => {
     return (
         <div className="bg-white rounded-2xl shadow-md w-full">
             <div className="flex flex-row items-center p-4 gap-8">
-                <ScoreGauge score={feedback.overall_score} />
+                <ScoreGauge score={feedback.overall_rating * 10} />
 
                 <div className="flex flex-col gap-2">
                     <h2 className="text-2xl font-bold">Your Resume Score</h2>
@@ -37,10 +37,10 @@ const Summary = ({ feedback }: any) => {
                 </div>
             </div>
 
-            <Category title="Tone & Style" score={feedback.toneAndStyle?.score} />
-            <Category title="Content" score={feedback.content?.score} />
-            <Category title="Structure" score={feedback.structure?.score} />
-            <Category title="Skills" score={feedback.skills?.score} />
+            <Category title="Tone & Style" score={feedback.detailed_feedback.ats_compatibility.score * 10} />
+            <Category title="Content" score={feedback.detailed_feedback.content_quality?.score * 10} />
+            <Category title="Structure" score={feedback.detailed_feedback.formatting.score * 10} />
+            <Category title="Skills" score={feedback.detailed_feedback.technical_skills.score * 10} />
         </div>
     )
 }
