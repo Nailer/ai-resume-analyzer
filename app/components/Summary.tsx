@@ -1,6 +1,6 @@
 import React from 'react'
 import ScoreGauge from './ScoreGauge'
-import ScoreBadge from './ScoreCircle';
+import ScoreBadge from './ScoreBadge';
 
 const Category = ({ title, score }: { title: string, score: number }) => {
     const textColor = score > 70 ? 'text-green-600'
