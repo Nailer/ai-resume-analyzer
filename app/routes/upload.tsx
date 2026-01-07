@@ -5,7 +5,7 @@ import Navbar from '~/components/Navbar'
 import {usePuterStore} from '~/lib/puter';
 import { convertPdfToImage } from '~/lib/pdf2img';
 import { generateUUID } from '~/lib/utils';
-import { prepareInstructions } from 'constants/index';
+import { prepareInstructions, AIResponseFormat } from 'constants/index';
 
 const Upload = () => {
 
@@ -53,7 +53,7 @@ const Upload = () => {
 
     const feedback = await ai.feedback(
       uploadedFile.path,
-      prepareInstructions({ jobTitle, jobDescription, AIResponseFormat: "json" })
+      prepareInstructions({ jobTitle, jobDescription, AIResponseFormat })
     );
 
     if (!feedback) {
