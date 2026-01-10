@@ -1,45 +1,28 @@
-import hardhatToolboxMochaEthersPlugin from "@nomicfoundation/hardhat-toolbox-mocha-ethers";
-import { configVariable, defineConfig } from "hardhat/config";
+import "dotenv/config";
 import "@nomicfoundation/hardhat-toolbox";
+import type { HardhatUserConfig } from "hardhat/config";
 
-export default defineConfig({
-  plugins: [hardhatToolboxMochaEthersPlugin],
+const config: HardhatUserConfig = {
   solidity: {
-    profiles: {
-      default: {
-        version: "0.8.28",
-      },
-      production: {
-        version: "0.8.28",
-        settings: {
-          optimizer: {
-            enabled: true,
-            runs: 200,
-          },
-        },
-      },
+    version: "0.8.28",
+    settings: {
+      optimizer: { enabled: true, runs: 200 },
     },
   },
   networks: {
-    hardhatMainnet: {
-      type: "edr-simulated",
-      chainType: "l1",
-    },
-    hardhatOp: {
-      type: "edr-simulated",
-      chainType: "op",
-    },
+    hardhat: {},
     sepolia: {
-      type: "http",
-      chainType: "l1",
-      url: configVariable("SEPOLIA_RPC_URL"),
-      accounts: [configVariable("SEPOLIA_PRIVATE_KEY")],
+      url: process.env.SEPOLIA_RPC_URL || "",
+      accounts: process.env.SEPOLIA_PRIVATE_KEY
+        ? [process.env.SEPOLIA_PRIVATE_KEY]
+        : [],
     },
-    "lisk-sepolia": {
-      type: "http",
-      url: 'https://rpc.sepolia-api.lisk.com',
-      accounts: [process.env.WALLET_KEY as string],
-      gasPrice: 1000000000,
+    liskSepolia: {
+      url: "https://rpc.sepolia-api.lisk.com",
+      accounts: process.env.WALLET_KEY ? [process.env.WALLET_KEY] : [],
+      gasPrice: 1_000_000_000,
     },
   },
-});
+};
+
+export default config;

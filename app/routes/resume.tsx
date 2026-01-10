@@ -4,6 +4,7 @@ import ATS from '~/components/ATS';
 import Details from '~/components/Details';
 import Summary from '~/components/Summary';
 import { usePuterStore } from '~/lib/puter';
+import SuccessPopup from '~/components/SuccessPopup';
 
 export const meta = () => [
     { title: "Resumind | Review" },
@@ -85,6 +86,7 @@ const Resume = () => {
                     )}
                 </section>
             </div>
+        <SuccessPopup />
         </main>
     )
 }
