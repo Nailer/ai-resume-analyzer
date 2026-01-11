@@ -1,87 +1,85 @@
-# Welcome to React Router!
+# On-Chain AI Resume Analyzer & Talent Matching Platform (Built on Lisk)
 
-A modern, production-ready template for building full-stack React applications using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
-
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
-
-## Getting Started
-
-### Installation
-
-Install the dependencies:
-
-```bash
-npm install
-```
-
-### Development
-
-Start the development server with HMR:
-
-```bash
-npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)  
+[![Lisk](https://img.shields.io/badge/Built%20on-Lisk-blueviolet)](https://lisk.com/)
 
 ---
 
-Built with ❤️ using React Router.
+## Table of Contents
+
+- [Project Overview](#project-overview)  
+- [Features](#features)  
+- [How It Works](#how-it-works)  
+- [Architecture](#architecture)  
+- [Tech Stack](#tech-stack)  
+- [Installation & Setup](#installation--setup)  
+- [Usage](#usage)  
+- [Future Plans](#future-plans)  
+- [Challenges Faced](#challenges-faced)  
+- [Contributing](#contributing)  
+- [License](#license)  
+
+---
+
+## Project Overview
+
+The **On-Chain AI Resume Analyzer & Talent Matching Platform** is a cutting-edge, decentralized application (dApp) designed to revolutionize the hiring process. It combines **AI-powered resume analysis** with **blockchain security and transparency**, allowing job seekers to assess how well their resumes match specific job descriptions and giving recruiters access to verified candidate scores.
+
+This platform tackles a **global problem**: hiring inefficiencies and automated resume rejection by Applicant Tracking Systems (ATS), which affect millions of job seekers worldwide — including rapidly growing tech markets in **Southeast Asia**.
+
+By leveraging the **Lisk blockchain**, the platform ensures **trust, security, and verifiable on-chain data storage**, making it the first step toward a transparent, decentralized recruitment ecosystem.
+
+---
+
+## Features
+
+- **User Authentication**
+  - Secure sign-in for users before accessing the platform.
+- **Job & Resume Input**
+  - Users can enter job titles, roles, job descriptions, and upload resumes.
+- **AI Resume Analysis**
+  - Smart AI engine evaluates resumes against job descriptions.
+  - Generates detailed insights on **strengths, weaknesses**, and **improvement suggestions**.
+- **ATS Compatibility Score**
+  - Provides a clear percentage match with the job description.
+  - Helps candidates understand how ATS-friendly their resume is.
+- **On-Chain Storage**
+  - Analysis results and scores are **saved securely on Lisk blockchain**.
+  - Ensures **data integrity, ownership, and verifiability**.
+- **Recruiter Dashboard (Future)**
+  - Recruiters can access top candidates based on verified scores.
+  - Simplifies candidate selection with transparent ranking.
+
+---
+
+## How It Works
+
+1. **Sign-In**
+   - Users authenticate securely to access the platform.
+2. **Input Job & Resume**
+   - Fill out a form with job title, role, job description, and upload your resume.
+3. **Analyze**
+   - The AI engine compares the resume against the job description.
+   - Scores the resume for **ATS compatibility**.
+4. **Receive Feedback**
+   - Detailed insights about resume strengths, weaknesses, and improvement areas.
+   - Results are stored on-chain for **transparency and verifiability**.
+5. **Recruiter Access (Future)**
+   - Recruiters can view candidate scores and select top matches based on verified results.
+
+---
+
+## Architecture
+
+```text
++------------------+        +------------------------+
+|   Frontend       |        |      Backend/AI        |
+| (React + Tailwind)| <-->  |  Node.js + Express.js  |
++------------------+        +------------------------+
+          |                          |
+          | REST API / WebSocket     |
+          v                          v
++------------------+        +------------------------+
+| Lisk Blockchain  | <----> | AI Resume Analysis     |
+| On-Chain Storage |        | Engine (NLP/ML)       |
++------------------+        +------------------------+
