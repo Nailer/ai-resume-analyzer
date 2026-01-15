@@ -570,6 +570,42 @@
       "artifacts": [
         "IERC721Receiver"
       ]
+    },
+    "/Users/aje/Documents/Github/ai-resume-analyzer/contracts/ResumeStorage.sol": {
+      "lastModificationDate": 1768345034678,
+      "contentHash": "e9736a66a9ccae8f3432c46c091b7021",
+      "sourceName": "contracts/ResumeStorage.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.28"
+      ],
+      "artifacts": [
+        "ResumeStorage"
+      ]
     }
   }
 }
