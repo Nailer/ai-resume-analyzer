@@ -1,5 +1,4 @@
-const { expect } = require("chai");
-const hre = require("hardhat");
+import { expect } from "chai";
 
 describe("ResumeStorage", function () {
   let resumeStorage;
@@ -24,8 +23,8 @@ describe("ResumeStorage", function () {
   };
 
   beforeEach(async () => {
-    [owner, otherAccount] = await hre.ethers.getSigners();
-    const ResumeStorage = await hre.ethers.getContractFactory("ResumeStorage");
+    [owner, otherAccount] = await ethers.getSigners();
+    const ResumeStorage = await ethers.getContractFactory("ResumeStorage");
     resumeStorage = await ResumeStorage.deploy();
   });
 
