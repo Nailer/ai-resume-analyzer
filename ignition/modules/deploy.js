@@ -1,5 +1,7 @@
 import "@nomicfoundation/hardhat-ethers";
-import { ethers } from "hardhat";
+import hardhat from "hardhat";
+
+const { ethers } = hardhat;
 
 async function main() {
   const NFT = await ethers.getContractFactory("NFT");

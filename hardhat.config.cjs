@@ -21,7 +21,6 @@ module.exports = {
     liskSepolia: {
       url: "https://rpc.sepolia-api.lisk.com",
       accounts: process.env.WALLET_KEY ? [process.env.WALLET_KEY] : [],
-      gasPrice: 1_000_000_000,
     },
   },
 };
